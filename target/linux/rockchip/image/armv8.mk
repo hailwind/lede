@@ -62,6 +62,17 @@ define Device/ezpro_mrkaio-m68s-plus
 endef
 TARGET_DEVICES += ezpro_mrkaio-m68s-plus
 
+define Device/bananapi_bpi-r2-pro
+  DEVICE_VENDOR := BANANAPI
+  DEVICE_MODEL := Bpi R2 Pro
+  SOC := rk3568
+  UBOOT_DEVICE_NAME := mrkaio-m68s-rk3568
+  DEVICE_DTS := rockchip/rk3568-bpi-r2-pro
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script vop | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-r8125 kmod-ata-ahci kmod-ata-ahci-platform kmod-drm-rockchip
+endef
+TARGET_DEVICES += bananapi_bpi-r2-pro
+
 define Device/fastrhino_common
   DEVICE_VENDOR := FastRhino
   SOC := rk3568
